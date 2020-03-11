@@ -1,13 +1,18 @@
 import React from 'react';
-import MoviesButton from './Components/MoviesButton';
-import ItemsList from './Components/ItemsList';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Home from './Containers/Home';
+import Details from './Containers/Details';
 
 function App() {
 
   return (
     <div className="App">
-      <MoviesButton />
-      <ItemsList category={'movies'} />
+      <Router>
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/details' component={Details} />
+        </Switch>
+      </Router>
     </div>
   );
 }

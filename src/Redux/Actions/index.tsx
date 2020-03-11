@@ -10,3 +10,9 @@ export const setTopShows = (items: object) => {
         items: items,
     }
 }
+export const changeTab = (newTab: string) => {
+    return {
+        type: 'CHANGE_TAB',
+        newTab: newTab,
+    }
+}

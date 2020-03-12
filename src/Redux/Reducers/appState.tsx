@@ -1,5 +1,5 @@
 const initialState = {
-    selectedTab: 'movies',
+    selectedTab: 'shows',
 }
 
 const appStateReducers = (state = initialState, action) => {

@@ -4,7 +4,7 @@ export const setTopMovies = (items: any) => {
         items: items,
     }
 }
-export const setTopShows = (items: object) => {
+export const setTopShows = (items: any) => {
     return {
         type: 'SET_TOP_SHOWS',
         items: items,

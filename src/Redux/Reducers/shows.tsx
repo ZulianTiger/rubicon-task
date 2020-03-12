@@ -1,5 +1,5 @@
 const initialState = {
-    items: null,
+    items: [],
 }
 
 const showsReducer = (state = initialState, action) => {

@@ -8,6 +8,11 @@ const initialState = {
         overview: '',
         releaseDate: '',
     },
+    search: {
+        query: '',
+        searchTab: 'shows',
+        results: [],
+    }
 }
 
 const appStateReducers = (state = initialState, action) => {
@@ -25,6 +30,33 @@ const appStateReducers = (state = initialState, action) => {
                 title: action.title,
                 overview: action.overview,
                 releaseDate: action.releaseDate,
+            }
+        })
+    }
+    else if (action.type === 'SET_SEARCH') {
+        return Object.assign({}, state, {
+            search: {
+                query: action.query,
+                searchTab: action.searchTab,
+                results: action.results,
+            }
+        })
+    }
+    else if (action.type === 'CLEAR_SEARCH') {
+        return Object.assign({}, state, {
+            search: {
+                query: '',
+                searchTab: action.searchTab,
+                results: [],
+            }
+        })
+    }
+    else if (action.type === 'CHANGE_SEARCH_TAB') {
+        return Object.assign({}, state, {
+            search: {
+                query: state.search.query,
+                searchTab: action.tab,
+                results: action.newResults,
             }
         })
     }

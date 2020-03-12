@@ -1,8 +1,8 @@
 import React from 'react';
-import { setTopMovies, setTopShows, changeTab } from '../Redux/Actions';
+import { setTopMovies, setTopShows, changeTab, changeSearchTab } from '../Redux/Actions';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { request } from '../Services/themoviedb'
+import { request, requestSearch } from '../Services/themoviedb'
 
 import {
     ButtonContainer,
@@ -13,6 +13,7 @@ const CategoryButton = (props: any) => {
     const dispatch = useDispatch();
     const items = useSelector(state => state[props.category].items);
     const selectedTab = useSelector(state => state.appState.selectedTab);
+    const searchQuery = useSelector(state => state.appState.search.query);
     let category = props.category === 'movies' ? 'movie' : 'tv';
 
     const loadItems = () => {
@@ -31,6 +32,17 @@ const CategoryButton = (props: any) => {
                     }
                 });
         dispatch(changeTab(props.category));
+        if (searchQuery.length > 2)
+            fetch(requestSearch('/search/' + category, '&query=' + searchQuery), {
+                method: 'GET'
+            })
+                .then(res => res.json())
+                .then(json => {
+                    console.log(json);
+                    if (json.results !== undefined)
+                        dispatch(changeSearchTab(props.category, json.results.slice(0,10)));
+            });
+        
     }
 
     //initial load

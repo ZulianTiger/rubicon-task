@@ -1,3 +1,4 @@
+
 export const setTopMovies = (items: any) => {
     return {
         type: 'SET_TOP_MOVIES',
@@ -25,5 +26,26 @@ export const setDetails = (id: number, video: boolean, image: string, title: str
         title: title,
         overview: overview,
         releaseDate: releaseDate,
+    }
+}
+export const setSearch = (query: string, searchTab: string, results: any) => {
+    return {
+        type: 'SET_SEARCH',
+        query: query,
+        searchTab: searchTab,
+        results: results,
+    }
+}
+export const clearSearch = (searchTab: string) => {
+    return { 
+        type: 'CLEAR_SEARCH',
+        searchTab: searchTab,
+    }
+}
+export const changeSearchTab = (tab: string, newResults: any) => {
+    return {
+        type: 'CHANGE_SEARCH_TAB',
+        tab: tab,
+        newResults: newResults,
     }
 }

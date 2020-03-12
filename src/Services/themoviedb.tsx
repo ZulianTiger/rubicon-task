@@ -5,6 +5,10 @@ export const request = (endpoint: string) => {
     return (url + endpoint + apiKey);
 }
 
+export const requestSearch = (endpoint: string, query: string) => {
+    return (url + endpoint + apiKey + query);
+}
+
 export const getVideoObject = (id: string) => {
     return (url + '/movie/' + id + '/videos' + apiKey);
 }

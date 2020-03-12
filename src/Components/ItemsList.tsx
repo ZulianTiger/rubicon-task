@@ -12,7 +12,7 @@ const ItemsList = (props) => {
 
     return (
         <ListContainer>
-            {items.map(e => <Item item={e} />)}
+            {items.map(e => <Item key={e.id} item={e} />)}
         </ListContainer>
     )
 }

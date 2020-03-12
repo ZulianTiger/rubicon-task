@@ -16,3 +16,14 @@ export const changeTab = (newTab: string) => {
         newTab: newTab,
     }
 }
+export const setDetails = (id: number, video: boolean, image: string, title: string, overview: string, releaseDate: string) => {
+    return {
+        type: 'SET_DETAILS',
+        id: id,
+        video: video,
+        image: image,
+        title: title,
+        overview: overview,
+        releaseDate: releaseDate,
+    }
+}

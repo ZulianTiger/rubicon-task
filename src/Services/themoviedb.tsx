@@ -5,4 +5,8 @@ export const request = (endpoint: string) => {
     return (url + endpoint + apiKey);
 }
 
+export const getVideoObject = (id: string) => {
+    return (url + '/movie/' + id + '/videos' + apiKey);
+}
+
 

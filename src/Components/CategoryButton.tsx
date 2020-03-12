@@ -53,12 +53,12 @@ const CategoryButton = (props: any) => {
     if (selectedTab === props.category)
         return (
             <ButtonContainer selected={true} onClick={() => { loadItems() }}>
-                <ButtonText selected={true}>Load {props.category}</ButtonText>
+                <ButtonText selected={true}>Top 10 {props.category}</ButtonText>
             </ButtonContainer>
         )
     else return (
         <ButtonContainer selected={false} onClick={() => { loadItems() }}>
-            <ButtonText>Load {props.category}</ButtonText>
+            <ButtonText>Top 10 {props.category}</ButtonText>
         </ButtonContainer>
     )
 
